@@ -1,19 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{802FCDFE-802E-46FF-8A39-503610D57DC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{596DC2B8-8FCB-470D-95FB-1A2D456670BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.API", "UserManagement.API\UserManagement.API.csproj", "{0A72C617-BAD4-4272-8836-C4FEDF687246}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.API", "UserManagement.API\UserManagement.API.csproj", "{0A72C617-BAD4-4272-8836-C4FEDF687246}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Domain", "UserManagement.Domain\UserManagement.Domain.csproj", "{E97EB725-9495-45EC-8899-3C69E940CCDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Domain", "UserManagement.Domain\UserManagement.Domain.csproj", "{E97EB725-9495-45EC-8899-3C69E940CCDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Data", "UserManagement.Data\UserManagement.Data.csproj", "{CC4DF1AB-262D-48DD-9645-78D8DF8BAE20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Infrastructure", "UserManagement.Data\UserManagement.Infrastructure.csproj", "{CC4DF1AB-262D-48DD-9645-78D8DF8BAE20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Service", "UserManagement.Service\UserManagement.Service.csproj", "{692C7E31-6D38-4739-8F6C-87EC2F11F179}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Application", "UserManagement.Service\UserManagement.Application.csproj", "{692C7E31-6D38-4739-8F6C-87EC2F11F179}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Shared", "UserManagement.Shared\UserManagement.Shared.csproj", "{1E052204-E2E4-4182-9098-F628AB46FDDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{692C7E31-6D38-4739-8F6C-87EC2F11F179}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{692C7E31-6D38-4739-8F6C-87EC2F11F179}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{692C7E31-6D38-4739-8F6C-87EC2F11F179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E052204-E2E4-4182-9098-F628AB46FDDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E052204-E2E4-4182-9098-F628AB46FDDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E052204-E2E4-4182-9098-F628AB46FDDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E052204-E2E4-4182-9098-F628AB46FDDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +52,9 @@ Global
 		{E97EB725-9495-45EC-8899-3C69E940CCDE} = {802FCDFE-802E-46FF-8A39-503610D57DC3}
 		{CC4DF1AB-262D-48DD-9645-78D8DF8BAE20} = {802FCDFE-802E-46FF-8A39-503610D57DC3}
 		{692C7E31-6D38-4739-8F6C-87EC2F11F179} = {802FCDFE-802E-46FF-8A39-503610D57DC3}
+		{1E052204-E2E4-4182-9098-F628AB46FDDE} = {802FCDFE-802E-46FF-8A39-503610D57DC3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D22A1B2-92EB-4D3B-8ED0-9413A2350256}
 	EndGlobalSection
 EndGlobal
