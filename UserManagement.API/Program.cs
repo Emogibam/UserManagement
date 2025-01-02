@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using UserManagement.Data.Context;
+using UserManagement.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,23 +10,24 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
 
 
-builder.Services.AddDbContext<AppDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
 
 builder.Services.AddDbContext<AuditDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AuditDBConnection"))
 );
 
+builder.Services.AddDbContext<ReadAppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ReadConnection")));
+
+builder.Services.AddDbContext<WriteAppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WriteConnection")));
 
 
 var app = builder.Build();
 
-
-app.MapOpenApi();
+app.UseSwagger(); 
+app.UseSwaggerUI();
 
 
 app.UseHttpsRedirection();
