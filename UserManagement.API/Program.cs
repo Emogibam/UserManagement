@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using System;
 using UserManagement.Data.Context;
 using UserManagement.Infrastructure.Context;
+using UserManagement.Infrastructure.DBConnections.Implementations;
+using UserManagement.Infrastructure.DBConnections.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,9 @@ builder.Services.AddDbContext<ReadAppDbContext>(options =>
 builder.Services.AddDbContext<WriteAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("WriteConnection")));
 
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
