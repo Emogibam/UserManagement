@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using System;
 using UserManagement.Data.Context;
 using UserManagement.Infrastructure.Context;
+using UserManagement.Infrastructure.DBConnections.Implementations;
+using UserManagement.Infrastructure.DBConnections.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,12 +19,16 @@ builder.Services.AddDbContext<AuditDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AuditDBConnection"))
 );
 
-builder.Services.AddDbContext<ReadAppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ReadConnection")));
-
-builder.Services.AddDbContext<WriteAppDbContext>(options =>
+builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("WriteConnection")));
 
+// Add Read DbContext (ReadAppDbContext)
+builder.Services.AddDbContext<ReadAppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WriteConnection")));
+
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

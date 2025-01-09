@@ -11,6 +11,5 @@ namespace UserManagement.Infrastructure.Context
     public class ReadAppDbContext : AppDBContext
     {
         public ReadAppDbContext(DbContextOptions<ReadAppDbContext> options) : base(options) { }
-
     }
 }
