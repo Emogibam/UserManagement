@@ -19,10 +19,11 @@ builder.Services.AddDbContext<AuditDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AuditDBConnection"))
 );
 
-builder.Services.AddDbContext<ReadAppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ReadConnection")));
+builder.Services.AddDbContext<AppDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WriteConnection")));
 
-builder.Services.AddDbContext<WriteAppDbContext>(options =>
+// Add Read DbContext (ReadAppDbContext)
+builder.Services.AddDbContext<ReadAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("WriteConnection")));
 
 
