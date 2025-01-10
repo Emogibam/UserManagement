@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserManagement.Application.Logics.Implementations
+namespace UserManagement.Shared.DOTs.ResponseDTO
 {
-    internal class Class1
+    public class CreateUserResponse
     {
     }
 }
