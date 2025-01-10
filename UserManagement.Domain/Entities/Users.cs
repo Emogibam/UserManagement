@@ -10,6 +10,12 @@ namespace UserManagement.Domain.Entities
         [Required]
         [MaxLength(50)]
         public string Username { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string FirstName { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string LastName { get; set; }
 
         [Required]
         [EmailAddress]
@@ -37,7 +43,6 @@ namespace UserManagement.Domain.Entities
 
         public DateTime? LockoutEndTime { get; set; }
 
-        // Navigation Properties
         public ICollection<UserRole> Roles { get; set; } = new List<UserRole>();
         public ICollection<UserPasswordHistory> PasswordHistories { get; set; } = new List<UserPasswordHistory>();
 
