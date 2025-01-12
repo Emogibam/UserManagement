@@ -22,8 +22,9 @@ namespace UserManagement.Domain.Entities
         public string Email { get; set; }
 
         [Required]
-        [MinLength(6)]
         public string PasswordHash { get; set; }
+        public string PasswordResetToken { get; set; }
+        public DateTime PasswordResetTokenExpiryTIme { get; set; }
 
         [Phone]
         public string Phone { get; set; }
@@ -33,7 +34,8 @@ namespace UserManagement.Domain.Entities
         public bool IsActive { get; set; } = true;
 
         public bool EmailVerified { get; set; } = false;
-
+        public string EmailVerificationToken { get; set; }
+        public DateTime EmailVerificationTokenExpiryTime { get; set; }
 
         public DateTime? LastLoginAt { get; set; }
 

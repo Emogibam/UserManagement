@@ -12,4 +12,5 @@ namespace UserManagement.Infrastructure.Context
     {
         public WriteAppDbContext(DbContextOptions<WriteAppDbContext> options) : base(options) { }
     }
+
 }
