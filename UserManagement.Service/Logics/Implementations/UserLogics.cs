@@ -19,13 +19,13 @@ namespace UserManagement.Application.Logics.Implementations
             this._iLogger = iLogger;
         }
 
-        public async Task<GenericResponse<CreateUserResponse>> CreateUser(CreateUserRequest request)
-        {
+        //public async Task<GenericResponse<CreateUserResponse>> CreateUser(CreateUserRequest request)
+        //{
 
 
-            var token = new GenericHelper().GenerateRandomString(6);
+        //    var token = new GenericHelper().GenerateRandomString(6);
 
             
-        }
+        //}
     }
 }
