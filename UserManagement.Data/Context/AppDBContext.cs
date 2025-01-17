@@ -8,9 +8,15 @@ using UserManagement.Domain.Entities;
 
 namespace UserManagement.Data.Context
 {
-    public class AppDBContext : DbContext
+    public abstract class AppDBContext : DbContext
     {
-        public AppDBContext(DbContextOptions options) : base(options) { }
+        private readonly string connectionString;
+
+        protected AppDBContext(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+        protected AppDBContext(DbContextOptions<AppDBContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
