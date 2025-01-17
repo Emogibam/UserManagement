@@ -10,6 +10,10 @@ namespace UserManagement.Infrastructure.Context
 {
     public class ReadAppDbContext : AppDBContext
     {
-        public ReadAppDbContext(DbContextOptions<ReadAppDbContext> options) : base(options) { }
+        public ReadAppDbContext() : base("ReadConnection")
+        {
+
+        }
+        public ReadAppDbContext(DbContextOptions<AppDBContext> options) : base(options) { }
     }
 }
