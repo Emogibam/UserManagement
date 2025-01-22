@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using UserManagement.Application.Helpers;
 using UserManagement.Application.Logics.Interfaces;
 using UserManagement.Infrastructure.Context;
 using UserManagement.Shared;
@@ -26,6 +28,20 @@ namespace UserManagement.Application.Logics.Implementations
 
             try
             {
+
+                var emailValidationResponse = ValidationHelperService.ValidateEmail(request.Email);
+                if (emailValidationResponse.Code != StatusCodes.Status200OK)
+                {
+                    _iLogger.LogWarning("Email validation failed: {Email}", request.Email);
+                    return GenericResponse<CreateUserResponse>.BadRequest(emailValidationResponse.Message);
+                }
+
+                var passwordValidationResponse =  ValidationHelperService.ValidatePassword(request.Password, request.ConfirmPassword);
+                if (passwordValidationResponse.Code != StatusCodes.Status200OK)
+                {
+                    _iLogger.LogWarning("Password validation failed for email: {Email}", request.Email);
+                    return GenericResponse<CreateUserResponse>.BadRequest(passwordValidationResponse.Message);
+                }
                 var token = new GenericHelper().GenerateRandomString(6);
 
             }

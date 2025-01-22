@@ -9,7 +9,7 @@ using UserManagement.Shared;
 
 namespace UserManagement.Application.Helpers
 {
-    public class ValidationHelperService
+    public static class ValidationHelperService
     {
         private const int OkCode = 200;
         private const int BadRequestCode = 400;
@@ -18,7 +18,7 @@ namespace UserManagement.Application.Helpers
         private const string DeletedMessage = "Request deleted successfully.";
         private const string NotFoundMessage = "Record not found";
         private const string InternalServerErrorMessage = "Error: Something wrong, please contact the site administrator.";
-        public async Task<GenericResponse<string>> ValidateAlphabeticString(string _value)
+        public static GenericResponse<string> ValidateAlphabeticString(string _value)
         {
             Regex regex = new Regex("^[a-zA-Z]+$");
 
@@ -30,7 +30,7 @@ namespace UserManagement.Application.Helpers
             return GenericResponse<string>.Success(_value, CreatedMessage);
         }
 
-        public async Task<GenericResponse<string>> ValidatePassword(string password, string confirmPassword)
+        public static GenericResponse<string> ValidatePassword(string password, string confirmPassword)
         {
             if (!password.Any(char.IsUpper) || !password.Any(char.IsLower) || !password.Any(char.IsDigit) || !password.Any(x => !char.IsLetterOrDigit(x)) || password.Length < 8)
             {
@@ -45,7 +45,7 @@ namespace UserManagement.Application.Helpers
             return GenericResponse<string>.Success(password, CreatedMessage);
         }
 
-        public async Task<GenericResponse<string>> ValidatePassword(string password)
+        public static GenericResponse<string> ValidatePassword(string password)
         {
             if (!password.Any(char.IsUpper) || !password.Any(char.IsLower) || !password.Any(char.IsDigit) || !password.Any(x => !char.IsLetterOrDigit(x)) || password.Length < 8)
             {
@@ -55,7 +55,7 @@ namespace UserManagement.Application.Helpers
             return GenericResponse<string>.Success(password, CreatedMessage);
         }
 
-        public async Task<GenericResponse<string>> ValidateEmail(string email)
+        public static GenericResponse<string> ValidateEmail(string email)
         {
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             Regex regex = new Regex(pattern);
