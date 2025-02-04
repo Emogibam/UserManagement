@@ -8,5 +8,7 @@ namespace UserManagement.Shared.DOTs.ResponseDTO
 {
     public class CreateUserResponse
     {
+        public string Token {  get; set; }
+        public string Email { get; set; }
     }
 }
