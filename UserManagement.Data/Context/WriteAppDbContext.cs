@@ -10,11 +10,9 @@ namespace UserManagement.Infrastructure.Context
 {
     public class WriteAppDbContext : AppDBContext
     {
-        public WriteAppDbContext(): base("WriteConnection")
+        public WriteAppDbContext(DbContextOptions<AppDBContext> options) : base(options)
         {
-
         }
-        public WriteAppDbContext(DbContextOptions<AppDBContext> options) : base(options) { }
     }
 
 }
