@@ -9,7 +9,6 @@ using UserManagement.Domain.Entities;
 using UserManagement.Infrastructure.Context;
 using UserManagement.Shared;
 using UserManagement.Shared.DOTs.RequestDTO;
-using UserManagement.Shared.DOTs.RequestDTO.UserManagement.Shared.DTOs;
 using UserManagement.Shared.DOTs.ResponseDTO;
 
 
@@ -113,5 +112,9 @@ namespace UserManagement.Application.Logics.Implementations
                 return GenericResponse<CreateUserResponse>.InternalServerError("Something went wrong. Please try again later.");
             }
         }
+
+      
+
+     
     }
 }
