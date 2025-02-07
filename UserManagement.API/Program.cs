@@ -61,10 +61,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
-builder.Services.AddMediatR(x =>
-{
-    x.RegisterServicesFromAssembly(typeof(Program).Assembly);
-});
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserCommandHandler).Assembly));
+
 
 var app = builder.Build();
 
